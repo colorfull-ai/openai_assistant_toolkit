@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+*.pyz
+*.pyzw
+*.egg-info/
+dist/
+build/
+*.egg
+*.spec
+
+# Poetry
+/poetry.lock
+/.venv
+
+# IDEs
+/.idea
+*.swp
+*.swo
+*~
+/.vscode
+
+# OS
+.DS_Store

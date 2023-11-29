@@ -1,5 +1,4 @@
 # test_toolkit.py
-import pytest
 from openai_assistant_toolkit import FunctionToolGenerator  # Replace 'your_module' with the actual module name
 from openai_assistant_toolkit import OpenAPISpecParser  # Replace 'your_module' with the actual module name
 
