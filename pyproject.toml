@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "openai_assistant_toolkit"
+version = "0.1.0"
+description = "A toolkit for creating function tools for OpenAI from OpenAPI JSON specification."
+authors = ["Benjamin Garrard <ben@colorfull.ai>"]
+packages = [{ from = "src", include = "openai_assistant_toolkit" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
