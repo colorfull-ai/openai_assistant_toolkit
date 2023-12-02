@@ -1,3 +1,4 @@
+import inspect
 import json
 
 class FunctionToolGenerator:
@@ -80,3 +81,30 @@ def create_toolkit_from_openapi_spec(spec_file_path):
     function_tools = generator.generate_functions()
 
     return function_tools
+
+def create_function_tool_from_callback(name, callback):
+    # Generate function tool from a Typer callback
+    # Extracting parameter details from the callback function
+    params = inspect.signature(callback).parameters
+    parameters = {
+        "type": "object",
+        "properties": {},
+        "required": []
+    }
+
+    for param_name, param in params.items():
+        parameters["properties"][param_name] = {
+            "type": str(param.annotation),
+            "description": param_name  # or a more detailed description if available
+        }
+        if param.default is param.empty:
+            parameters["required"].append(param_name)
+
+    return {
+        "type": "function",
+        "function": {
+            "name": name,
+            "description": callback.__doc__ or "",
+            "parameters": parameters
+        }
+    }
